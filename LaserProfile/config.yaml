@@ -1,0 +1,8 @@
+Setup:
+  path: "/Users/lucasrussell/Documents/Muon_g2/ECDL/DiodeCode" # directory where images stored
+  blank: "BlankSample.png" # file name of the blank image (used to remove damaged pixels)
+  # Samples to process:
+  samples: ["Image_30cm.png", "Image_60cm.png", "Image_90cm.png", "Image_120cm.png", "Image_150cm.png"]
+  distances: [30, 60, 90, 120, 150]  # Distances of each image
+  show_beam: False # Show beam center location for each image
+  show_fit: False # Show fit results for each image
