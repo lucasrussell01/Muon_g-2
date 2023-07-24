@@ -6,7 +6,7 @@ from matcher import matcher
 
 
 
-path = "../ToRFQstudy/run/data/" + "musr_11000.root"
+path = "../../../ToRFQstudy/run/data/" + "musr_11000.root"
 
 m = matcher(path)
 
