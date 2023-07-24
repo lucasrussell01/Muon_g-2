@@ -33,11 +33,11 @@ y_center=0
 detune=0
 fout = "detune_scan.txt"
 
-def calcrateeq(fin="",fout=""):
+def calcrateeq(fin="",fout="", filename1="", filename2=""):
 	if (fin==""):
 		subprocess.call( ["./bin/RateEquation "],shell=True)
 	else:
-		process="./bin/RateEquation "+ str(fin)+" "+str(fout)
+		process="./bin/RateEquation "+ str(fin)+" "+str(fout) + " " + str(filename1) + " " + str(filename2)        
 		subprocess.call( [process],shell=True)
 
 def WriteResult(fdetune):
