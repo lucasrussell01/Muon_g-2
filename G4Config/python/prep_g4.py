@@ -11,8 +11,8 @@ runID = str(args.runID).zfill(5)
 
 with open(f'/home/had/lrussell/laserionization_highstat/result/{args.fin}', 'r') as file:
     n = len(file.readlines())
-    n_lim = math.floor(n/100)*100
-    print(f"Number of available events: {n}, GEANT4 limit will be {n_lim}")
+    #n_lim = math.floor(n/100)*100
+    print(f"Number ionised: {n}")
     
 
 with open('toy.mac', 'r') as file:
@@ -21,7 +21,7 @@ with open('toy.mac', 'r') as file:
 
 data[300] = f'/gun/turtlefilename /home/had/lrussell/laserionization_highstat/result/{args.fin}\n'
 
-data[305] = f'/run/beamOn {n_lim}\n'
+data[305] = f'/run/beamOn {n}\n'
 
 
 

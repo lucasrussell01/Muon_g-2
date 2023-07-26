@@ -58,7 +58,7 @@ def UNBconfig(name, E=0.3, z_width=2.3e-3, y_width=23e-3, z_pos=3.3e-3, y_pos=0e
 
 def vary_z_pos():
     n_runID = 11000 #start at 11000 then increment
-    for z in np.arange(1e-3, 10.5e-3, 0.5e-3):
+    for z in np.arange(1e-3, 10.5e-3, 0.25e-3):
         # declare relevant vars
         runID = str(n_runID).zfill(5)
         #print(runID)
@@ -100,7 +100,7 @@ def vary_y_pos():
 
 def vary_z_size():
     n_runID = 13000 #start at 13000 then increment
-    for z in np.arange(0, 7.5e-3, 0.25e-3):
+    for z in np.arange(0, 7.5e-3, 0.1e-3):
         # declare relevant vars
         runID = str(n_runID).zfill(5)
         #print(runID)
@@ -182,6 +182,12 @@ def vary_E_UNB():
         # Increase runID by 1 for next value
         n_runID+=1
 
+
+vary_z_pos()
+vary_y_pos()
+vary_z_size()
+vary_y_size()
 vary_E_UNB()
+vary_E_VUV()
 
 
