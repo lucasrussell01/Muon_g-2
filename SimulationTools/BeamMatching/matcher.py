@@ -5,17 +5,30 @@ import matplotlib.pyplot as plt
 
 class matcher:
 
-    def __init__(self, file_path):
+    def __init__(self, file_path, runID):
         
-        self.f = R.TFile.Open(file_path, "read")
+        root_path = file_path + "/musr_" + str(runID) + ".root"
+       
+        self.f = R.TFile.Open(root_path, "read")
         self.tree = self.f.t1 
         self.n = self.tree.GetEntries()
         #print("Processed file", self.f, "with entries:", int(self.n))
         if int(self.n)==0:
-            print("WARNING: No entries in the file")
+            print("WARNING: No entries in the file", root_path)
             raise Exception("No entries for this input")
+        elif int(self.n)<50:
+            print("WARNING: Insufficiant statistics", int(self.n))
+            raise Exception("Insufficiant statistics")
         else:
             print("Entries: ", int(self.n))
+
+        mac = file_path + "/../" + str(runID) + ".mac"
+        #print(mac)
+        with open(mac, "r") as f:
+            macro = f.readlines()
+            self.n_ion = int(macro[305][11:])
+
+
         self.alpha = 1.0745
         self.beta = 0.06740*100               *10
         self.epsilon = 0.167*5.0*1e-4/0.01    *10
@@ -40,6 +53,11 @@ class matcher:
         self.y = np.array(self.y)
         self.yp = np.array(self.yp)
         
+        self.x_m = np.mean(self.x)
+        self.xp_m = np.mean(self.xp)
+        self.y_m = np.mean(self.y)
+        self.yp_m = np.mean(self.yp)
+
         # center the beams
         self.x = self.x - np.mean(self.x)
         self.xp = self.xp -np.mean(self.xp)
@@ -80,5 +98,5 @@ class matcher:
             if np.isnan(R_y):
                 print(est_y_beta, est_y_gamma, est_y_alpha)
 
-        return self.mis
+        return self.mis, self.n, self.n_ion, self.x_m, self.xp_m, self.y_m, self.yp_m
 

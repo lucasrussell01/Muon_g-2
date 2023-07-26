@@ -1,7 +1,7 @@
 import ROOT as R
 import numpy as np
 
-path = "~/ToRFQstudy/run/data/musr_12046.root"
+path = "~/ToRFQstudy/run/data/musr_14015.root"
 
 f = R.TFile.Open(path, "read")
 
@@ -40,8 +40,7 @@ detector_cut = "save_detID==654&&save_particleID==-13"
 hist = R.TH2F("hist","",xnbin, xmin, xmax, ynbin, ymin, ymax)
  
 
-#tree.Draw("save_px/save_pz:save_x-780 >> hist",detector_cut,"colz")
-tree.Draw("save_py/save_pz:save_y >> hist",detector_cut,"colz")
+tree.Draw("save_px/save_pz:save_x-780 >> hist",detector_cut,"colz")
 
 
 hist.SetXTitle("x")
@@ -50,6 +49,20 @@ hist.SetTitle("Phase Space Histogram")
 hist.Draw("colz")
 
 
+raw_input("Press enter to close...")
+
+
+hist = R.TH2F("hist","",xnbin, xmin, xmax, ynbin, ymin, ymax)
+ 
+
+#tree.Draw("save_px/save_pz:save_x-780 >> hist",detector_cut,"colz")
+tree.Draw("save_py/save_pz:save_y >> hist",detector_cut,"colz")
+
+
+hist.SetXTitle("y")
+hist.SetYTitle("y'  (px/pz)")
+hist.SetTitle("Phase Space Histogram")
+hist.Draw("colz")
 raw_input("Press enter to close...")
 
 f.Close()
