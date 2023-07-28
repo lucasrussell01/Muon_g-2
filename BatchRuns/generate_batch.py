@@ -57,7 +57,7 @@ def UNBconfig(name, E=0.3, z_width=2.3e-3, y_width=23e-3, z_pos=3.3e-3, y_pos=0e
 
 
 def vary_z_pos():
-    n_runID = 11000 #start at 11000 then increment
+    n_runID = 31000 #start at 11000 then increment
     for z in np.arange(1e-3, 10.5e-3, 0.25e-3):
         # declare relevant vars
         runID = str(n_runID).zfill(5)
@@ -67,7 +67,7 @@ def vary_z_pos():
         runname = runID + ".sh"
         macro = f'MuYield_000001_ionization_run{runID}.dat'
         # generate configs
-        VUVconfig(VUVcfg, z_pos=z)
+        VUVconfig(VUVcfg)#, z_pos=z)
         UNBconfig(UNBcfg, z_pos=z)
         print(f"Generated configs for z_pos = {z}")
         # Create the job
@@ -78,7 +78,7 @@ def vary_z_pos():
         n_runID+=1
 
 def vary_y_pos():
-    n_runID = 12000 #start at 12000 then increment
+    n_runID = 32000 #start at 12000 then increment
     for y in np.arange(-23e-3, 24e-3, 1e-3):
         # declare relevant vars
         runID = str(n_runID).zfill(5)
@@ -88,7 +88,7 @@ def vary_y_pos():
         runname = runID + ".sh"
         macro = f'MuYield_000001_ionization_run{runID}.dat'
         # generate configs
-        VUVconfig(VUVcfg, y_pos=y)
+        VUVconfig(VUVcfg)#, y_pos=y)
         UNBconfig(UNBcfg, y_pos=y)
         print(f"Generated configs for y_pos = {y}")
         # Create the job
@@ -99,7 +99,7 @@ def vary_y_pos():
         n_runID+=1
 
 def vary_z_size():
-    n_runID = 13000 #start at 13000 then increment
+    n_runID = 33000 #start at 13000 then increment
     for z in np.arange(0, 7.5e-3, 0.1e-3):
         # declare relevant vars
         runID = str(n_runID).zfill(5)
@@ -109,7 +109,7 @@ def vary_z_size():
         runname = runID + ".sh"
         macro = f'MuYield_000001_ionization_run{runID}.dat'
         # generate configs
-        VUVconfig(VUVcfg, z_width=z)
+        VUVconfig(VUVcfg)#, z_width=z)
         UNBconfig(UNBcfg, z_width=z)
         print(f"Generated configs for z size = {z}")
         # Create the job
@@ -120,7 +120,7 @@ def vary_z_size():
         n_runID+=1
 
 def vary_y_size():
-    n_runID = 14000 #start at 14000 then increment
+    n_runID = 34000 #start at 14000 then increment
     for y in np.arange(18e-3, 28.5e-3, 0.5e-3):
         # declare relevant vars
         runID = str(n_runID).zfill(5)
@@ -130,7 +130,7 @@ def vary_y_size():
         runname = runID + ".sh"
         macro = f'MuYield_000001_ionization_run{runID}.dat'
         # generate configs
-        VUVconfig(VUVcfg, y_width=y)
+        VUVconfig(VUVcfg)#, y_width=y)
         UNBconfig(UNBcfg, y_width=y)
         print(f"Generated configs for y size = {y}")
         # Create the job
@@ -187,7 +187,7 @@ vary_z_pos()
 vary_y_pos()
 vary_z_size()
 vary_y_size()
-vary_E_UNB()
-vary_E_VUV()
+#vary_E_UNB()
+#vary_E_VUV()
 
 
