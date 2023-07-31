@@ -127,12 +127,10 @@ class BeamFitter:
         plt.show()
 
 
-
-
-
-config = yaml.safe_load(open("config.yaml"))
-
-fitter = BeamFitter(config)
-fitter.fit_all()
+if __name__=="__main__":
+    config = yaml.safe_load(open("config.yaml"))
+    
+    fitter = BeamFitter(config)
+    fitter.fit_all()
 
 
