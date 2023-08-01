@@ -8,7 +8,7 @@ from plotter import plot
 path = "../../../ToRFQstudy/run/data/" 
 
 def vary_z_pos():
-    n_runID = 21000 #start at 11000 then increment
+    n_runID = 31000 #start at 11000 then increment
     var = np.arange(1e-3, 10.5e-3, 0.25e-3)
     valid = []
     matches = []
@@ -40,7 +40,7 @@ def vary_z_pos():
     return valid, matches, n_hit, n_ion, mean_x, mean_y, mean_xp, mean_yp
 
 def vary_y_pos():
-    n_runID = 22000 
+    n_runID = 32000 
     var = np.arange(-23e-3, 24e-3, 1e-3)
     valid = []
     matches = []
@@ -72,7 +72,7 @@ def vary_y_pos():
     return valid, matches, n_hit, n_ion, mean_x, mean_y, mean_xp, mean_yp
 
 def vary_z_size():
-    n_runID = 23000 #start at 13000 then incrementi
+    n_runID = 33000 #start at 13000 then incrementi
     valid = []
     matches = []
     n_hit = []
@@ -104,7 +104,7 @@ def vary_z_size():
     return valid, matches, n_hit, n_ion, mean_x, mean_y, mean_xp, mean_yp
 
 def vary_y_size():
-    n_runID = 24000 #start at 14000 then increment
+    n_runID = 34000 #start at 14000 then increment
     valid = []
     matches = []
     n_hit = []
